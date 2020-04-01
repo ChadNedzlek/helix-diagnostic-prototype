@@ -5,6 +5,9 @@
     <IncludeDotNetCli>true</IncludeDotNetCli>
     <DotNetCliPackageType>sdk</DotNetCliPackageType>
     <TestRunNamePrefix>$(AGENT_JOBNAME)</TestRunNamePrefix>
+
+    <!-- temporary while using xunit.runner.console -->
+    <XUnitPublishTargetFramework>netcoreapp3.1</XUnitPublishTargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(HelixAccessToken)' == '' ">
