@@ -36,7 +36,7 @@ stages:
             -ci
             -restore
             -test
-            -projects $(Build.SourcesDirectory)\tests\Helix.proj
+            -projects $(Build.SourcesDirectory)\test\Helix.proj
             /bl:$(Build.SourcesDirectory)\artifacts\log\$(_BuildConfig)\Helix.binlog
             /p:RestoreUsingNuGetTargets=false
           displayName: Run Helix Tests
