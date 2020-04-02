@@ -5,6 +5,7 @@
     <IncludeDotNetCli>true</IncludeDotNetCli>
     <DotNetCliPackageType>sdk</DotNetCliPackageType>
     <TestRunNamePrefix>$(AGENT_JOBNAME)</TestRunNamePrefix>
+    <DotNetCliVersion>3.1.101</DotNetCliVersion>
 
     <!-- temporary while using xunit.runner.console -->
     <XUnitPublishTargetFramework>netcoreapp3.1</XUnitPublishTargetFramework>
