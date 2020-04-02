@@ -1,0 +1,78 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "ProcessWithHang/5.0.0-dev": {
+        "dependencies": {
+          "Microsoft.NETFramework.ReferenceAssemblies": "1.0.0-preview.2",
+          "Microsoft.SourceLink.AzureRepos.Git": "1.0.0-beta2-19554-01",
+          "Microsoft.SourceLink.GitHub": "1.0.0-beta2-19554-01"
+        },
+        "runtime": {
+          "ProcessWithHang.dll": {}
+        }
+      },
+      "Microsoft.Build.Tasks.Git/1.0.0-beta2-19554-01": {},
+      "Microsoft.NETFramework.ReferenceAssemblies/1.0.0-preview.2": {},
+      "Microsoft.SourceLink.AzureRepos.Git/1.0.0-beta2-19554-01": {
+        "dependencies": {
+          "Microsoft.Build.Tasks.Git": "1.0.0-beta2-19554-01",
+          "Microsoft.SourceLink.Common": "1.0.0-beta2-19554-01"
+        }
+      },
+      "Microsoft.SourceLink.Common/1.0.0-beta2-19554-01": {},
+      "Microsoft.SourceLink.GitHub/1.0.0-beta2-19554-01": {
+        "dependencies": {
+          "Microsoft.Build.Tasks.Git": "1.0.0-beta2-19554-01",
+          "Microsoft.SourceLink.Common": "1.0.0-beta2-19554-01"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ProcessWithHang/5.0.0-dev": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Build.Tasks.Git/1.0.0-beta2-19554-01": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-v263i3YSvtCGfm0LiOHOUCSZlMNvwP7S1Wo2bQN3T/7jHqqttjnCKHDoJDUu2iyfL8A9FrPRhTyhxOXe2m8PYQ==",
+      "path": "microsoft.build.tasks.git/1.0.0-beta2-19554-01",
+      "hashPath": "microsoft.build.tasks.git.1.0.0-beta2-19554-01.nupkg.sha512"
+    },
+    "Microsoft.NETFramework.ReferenceAssemblies/1.0.0-preview.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m+pJPEO7HyXvrOna5Sr3s77ewXonjYWJTNL6drh8xACnMNxnlqUDKx9HfGeSE9wmfY0lQwppaeZpFTPGaH7kZg==",
+      "path": "microsoft.netframework.referenceassemblies/1.0.0-preview.2",
+      "hashPath": "microsoft.netframework.referenceassemblies.1.0.0-preview.2.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.AzureRepos.Git/1.0.0-beta2-19554-01": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MF8bt/BJhDrt9PmZ5FEWDtW8g5Oxhbx2LxKV8jtr7VPviK1E5ikChYHkvHnbPhInwduNxrkUqXwqM6pQsbNREw==",
+      "path": "microsoft.sourcelink.azurerepos.git/1.0.0-beta2-19554-01",
+      "hashPath": "microsoft.sourcelink.azurerepos.git.1.0.0-beta2-19554-01.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.Common/1.0.0-beta2-19554-01": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3UPzCA83snmVmWdrTfE9WctN7zSB+jPf5OVatYCjD4bpjOO4rLVkpTLrDKbXJsmk/uHC24YFX1XRw24u9DgTTA==",
+      "path": "microsoft.sourcelink.common/1.0.0-beta2-19554-01",
+      "hashPath": "microsoft.sourcelink.common.1.0.0-beta2-19554-01.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.GitHub/1.0.0-beta2-19554-01": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Xb6QINuKuOR4mWOpr7l/jocY/nk3Q88lZ3uYTQhzZvhVDEJ63dDJtVP2SFLXKvwzm1fHTQloDqSbn+0tj+x9jw==",
+      "path": "microsoft.sourcelink.github/1.0.0-beta2-19554-01",
+      "hashPath": "microsoft.sourcelink.github.1.0.0-beta2-19554-01.nupkg.sha512"
+    }
+  }
+}
