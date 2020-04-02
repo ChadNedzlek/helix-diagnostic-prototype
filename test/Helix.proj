@@ -1,5 +1,6 @@
 <Project DefaultTargets="Test">
-  <Import Sdk="Microsoft.DotNet.Helix.Sdk" Project="Sdk.props"/>
+  <Import Project="$(MSBuildThisFileDirectory)\..\Microsoft.DotNet.Helix.Sdk\sdk\Sdk.props" />
+
   <PropertyGroup>
     <HelixType>test/prototype/</HelixType>
     <IncludeDotNetCli>true</IncludeDotNetCli>
@@ -41,5 +42,5 @@
   </PropertyGroup>
   <Target Name="Pack"/>
 
-  <Import Sdk="Microsoft.DotNet.Helix.Sdk" Project="Sdk.targets"/>
+  <Import Project="$(MSBuildThisFileDirectory)\..\Microsoft.DotNet.Helix.Sdk\sdk\Sdk.targets" />
 </Project>

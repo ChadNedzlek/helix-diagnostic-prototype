@@ -1,0 +1,25 @@
+<Project>
+  <ItemGroup>
+    <HelixCorrelationPayload Include="$(MSBuildThisFileDirectory)\reporter" IncludeDirectoryName="true"/>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <HelixPostCommands Condition="$(IsPosixShell)">
+      $(HelixPostCommands);
+      /bin/sh $HELIX_CORRELATION_PAYLOAD/reporter/run.sh $(SYSTEM_TEAMFOUNDATIONCOLLECTIONURI) $(SYSTEM_TEAMPROJECT) $(TestRunId) $(SYSTEM_ACCESSTOKEN)
+    </HelixPostCommands>
+    <HelixPostCommands Condition="!$(IsPosixShell)">
+      $(HelixPostCommands);
+      call %HELIX_CORRELATION_PAYLOAD%\reporter\run.bat $(SYSTEM_TEAMFOUNDATIONCOLLECTIONURI) $(SYSTEM_TEAMPROJECT) $(TestRunId) $(SYSTEM_ACCESSTOKEN)
+    </HelixPostCommands>
+  </PropertyGroup>
+
+  <Target Name="SaveTestRunId"
+          AfterTargets="CoreTest">
+    <ItemGroup>
+      <SentJob Update="$(HelixJobId)">
+        <TestRunId>$(TestRunId)</TestRunId>
+      </SentJob>
+    </ItemGroup>
+  </Target>
+</Project>
