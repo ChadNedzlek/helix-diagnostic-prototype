@@ -1,5 +1,7 @@
 <Project DefaultTargets="Test">
-  <Import Project="$(MSBuildThisFileDirectory)\..\Microsoft.DotNet.Helix.Sdk\sdk\Sdk.props" />
+  <!-- <Import Sdk="Microsoft.DotNet.Helix.Sdk" Project="Sdk.props"/> -->
+  <!-- Using locally built version of the helix sdk, normal projects replace the below Import and PropertyGroup with the SDK import above-->
+  <Import Project="$(MSBuildThisFileDirectory)\..\src\overrides\Microsoft.DotNet.Helix\Helix.Sdk\sdk\Sdk.props"/>
 
   <PropertyGroup>
     <HelixType>test/prototype/</HelixType>
@@ -42,5 +44,7 @@
   </PropertyGroup>
   <Target Name="Pack"/>
 
-  <Import Project="$(MSBuildThisFileDirectory)\..\Microsoft.DotNet.Helix.Sdk\sdk\Sdk.targets" />
+  <!-- <Import Sdk="Microsoft.DotNet.Helix.Sdk" Project="Sdk.targets"/> -->
+  <!-- Using locally built version of the helix sdk, normal projects replace the below Import with the SDK import above-->
+  <Import Project="$(MSBuildThisFileDirectory)\..\src\overrides\Microsoft.DotNet.Helix\Helix.Sdk\sdk\Sdk.targets"/>
 </Project>

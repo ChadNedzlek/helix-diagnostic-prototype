@@ -1,11 +1,3 @@
 <Project>
-  <Import Project="$(MSBuildThisFileDirectory)\Microsoft.DotNet.Arcade.Sdk\sdk\Sdk.targets" />
-  
-  <Target Name="AddInternalsVisibleTo" BeforeTargets="CoreCompile">
-    <ItemGroup Condition="'@(InternalsVisibleTo->Count())' &gt; 0">
-      <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-        <_Parameter1>%(InternalsVisibleTo.Identity), PublicKey=$(PublicKey)</_Parameter1>
-      </AssemblyAttribute>
-    </ItemGroup>
-  </Target>
+  <Import Project="Sdk.targets" Sdk="Microsoft.DotNet.Arcade.Sdk" />
 </Project>
