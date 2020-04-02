@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -20,7 +20,7 @@ namespace XUnitTestProject2
 
             _testOutputHelper.WriteLine("This is line from another line from a test!");
 
-            Assert.True(true);
+            Assert.True(false);
         }
     }
 }
