@@ -33,7 +33,6 @@ stages:
         - script: eng\common\cibuild.cmd
             -configuration $(_BuildConfig) 
             -prepareMachine
-            $(_InternalBuildArgs)
             /p:Test=false
           displayName: Build / Publish
         - powershell: eng\common\build.ps1
