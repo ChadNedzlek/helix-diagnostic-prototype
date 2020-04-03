@@ -9,6 +9,7 @@ stages:
   jobs:
   - template: /eng/common/templates/jobs/jobs.yml
     parameters:
+      enableMicrobuild: false
       artifacts:
         publish:
           artifacts: true
