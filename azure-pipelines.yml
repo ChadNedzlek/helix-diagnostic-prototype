@@ -9,6 +9,7 @@ stages:
   jobs:
   - template: /eng/common/templates/jobs/jobs.yml
     parameters:
+      enableMicrobuild: false
       artifacts:
         publish:
           artifacts: true
@@ -30,6 +31,11 @@ stages:
         - checkout: self
           clean: true
         steps:
+        - script: eng\common\cibuild.cmd
+            -configuration $(_BuildConfig) 
+            -prepareMachine
+            /p:Test=false
+          displayName: Build / Publish
         - powershell: eng\common\build.ps1
             -configuration $(_BuildConfig) 
             -prepareMachine
