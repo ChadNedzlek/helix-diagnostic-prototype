@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using ProcessUtilities;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace XUnitTestProject6
+namespace XUnitTestProject7
 {
     public class UnitTest1
     {
@@ -18,9 +17,9 @@ namespace XUnitTestProject6
         }
 
         [Fact]
-        public async Task OutOfProcessHang()
+        public async Task OutOfProcessAv()
         {
-            var path = typeof(ProcessWithHang.Program).Assembly.Location;
+            var path = typeof(ProcessWithAv.Program).Assembly.Location;
 
             _testOutputHelper.WriteLine($"About to execute: {path}");
 

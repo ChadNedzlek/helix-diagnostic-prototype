@@ -1,17 +1,15 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsTestProject>true</IsTestProject>
     <IsUnitTestProject>true</IsUnitTestProject>
     <IsPackable>false</IsPackable>
     <TestRunnerName>XUnit</TestRunnerName>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\ProcessUtilities\ProcessUtilities.csproj" />
-    <ProjectReference Include="..\..\src\ProcessWithHang\ProcessWithHang.csproj" />
+    <ProjectReference Include="..\..\src\ProcessWithAv\ProcessWithAv.csproj" />
     <ProjectReference Include="..\..\src\UnitTestingDiagnostics\UnitTestingDiagnostics.Collector.csproj" />
   </ItemGroup>
 

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace XUnitTestProject6
+namespace ProcessUtilities
 {
     public static class ProcessUtil
     {
