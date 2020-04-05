@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -19,6 +20,11 @@ namespace XUnitTestProject2
             _testOutputHelper.WriteLine("This is line from a test!");
 
             _testOutputHelper.WriteLine("This is line from another line from a test!");
+
+            foreach (DictionaryEntry pair in Environment.GetEnvironmentVariables())
+            {
+                _testOutputHelper.WriteLine(pair.Key + "=" + pair.Value);
+            }
 
             Assert.True(false);
         }
