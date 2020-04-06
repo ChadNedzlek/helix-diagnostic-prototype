@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -125,18 +125,18 @@ namespace Microsoft.DotNet.Helix.Sdk
                     $"--runtimeconfig {assemblyBaseName}.runtimeconfig.json --depsfile {assemblyBaseName}.deps.json ";
             }
 
-            string command = $"{driver}{xUnitRunner} {assemblyName} {xUnitArguments} -xml testResults.xml {arguments}";
+            string command = $"{PathToDotnet} vstest {assemblyName} --logger:\"console;verbosity=normal\" --blame --collect:execution";
 
             Log.LogMessage($"Creating work item with properties Identity: {assemblyName}, PayloadDirectory: {publishDirectory}, Command: {command}");
 
             TimeSpan timeout = TimeSpan.FromMinutes(5);
-            if (!string.IsNullOrEmpty(XUnitWorkItemTimeout))
-            {
-                if (!TimeSpan.TryParse(XUnitWorkItemTimeout, out timeout))
-                {
-                    Log.LogWarning($"Invalid value \"{XUnitWorkItemTimeout}\" provided for XUnitWorkItemTimeout; falling back to default value of \"00:05:00\" (5 minutes)");
-                }
-            }
+            //if (!string.IsNullOrEmpty(XUnitWorkItemTimeout))
+            //{
+            //    if (!TimeSpan.TryParse(XUnitWorkItemTimeout, out timeout))
+            //    {
+            //        Log.LogWarning($"Invalid value \"{XUnitWorkItemTimeout}\" provided for XUnitWorkItemTimeout; falling back to default value of \"00:05:00\" (5 minutes)");
+            //    }
+            //}
 
             return new Microsoft.Build.Utilities.TaskItem(assemblyName, new Dictionary<string, string>()
             {
