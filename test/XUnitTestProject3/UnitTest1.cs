@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -18,7 +18,7 @@ namespace XUnitTestProject3
         }
 
         [Fact]
-        public async Task Test1()
+        public async Task AsyncTimeoutTest()
         {
             var tcs = new TaskCompletionSource<object>();
 

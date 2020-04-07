@@ -16,7 +16,7 @@ namespace XUnitTestProject8
         }
 
         [Fact]
-        public async Task Test1()
+        public async Task OutOfProcessCrash()
         {
             var path = typeof(ProcessWithCrash.Program).Assembly.Location;
 

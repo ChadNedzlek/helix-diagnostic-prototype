@@ -15,8 +15,10 @@ namespace XUnitTestProject2
         }
 
         [Fact]
-        public void Test1()
+        public void LogTestOutput()
         {
+            Console.WriteLine("This is direct console output from the test");
+
             _testOutputHelper.WriteLine("This is line from a test!");
 
             _testOutputHelper.WriteLine("This is line from another line from a test!");
