@@ -69,7 +69,7 @@ namespace Microsoft.DotNet.Helix.Sdk
                     }
 
                     metadata["UploadedFiles"] = JsonConvert.SerializeObject(files);
-                    metadata["Logs"] = JsonConvert.SerializeObject(details);
+                    metadata["WorkItemDetails"] = JsonConvert.SerializeObject(details);
                 }
                 catch (Exception ex)
                 {

@@ -30,7 +30,7 @@ namespace Microsoft.DotNet.Helix.Sdk
                 try
                 {
                     var uploadedFiles = JsonConvert.DeserializeObject<List<UploadedFile>>(failedWorkItem.GetMetadata("UploadedFiles"));
-                    var details = JsonConvert.DeserializeObject<WorkItemDetails>(failedWorkItem.GetMetadata("UploadedFiles"));
+                    var details = JsonConvert.DeserializeObject<WorkItemDetails>(failedWorkItem.GetMetadata("WorkItemDetails"));
                     var fileChunk = string.Join("\n\n", uploadedFiles.Select(f => $"{f.Name}:\n  {f.Link}"));
                     var logChunk = string.Join("\n\n", details.Logs.Select(l => $"{l.Module}:\n  {l.Uri}"));
 
