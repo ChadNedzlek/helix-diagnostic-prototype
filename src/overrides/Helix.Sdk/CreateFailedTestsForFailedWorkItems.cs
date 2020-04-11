@@ -32,38 +32,28 @@ namespace Microsoft.DotNet.Helix.Sdk
                     var uploadedFiles = JsonConvert.DeserializeObject<List<UploadedFile>>(failedWorkItem.GetMetadata("UploadedFiles"));
                     var details = JsonConvert.DeserializeObject<WorkItemDetails>(failedWorkItem.GetMetadata("WorkItemDetails"));
                     var fileChunk = string.Join("\n\n", uploadedFiles.Select(f => $"{f.Name}:\n  {f.Link}"));
-                    var logChunk = string.Join("\n\n", details.Logs.Select(l => $"{l.Module}:\n  {l.Uri}"));
 
-                    var text = @$"---- Files ----
-
-{fileChunk}
-
----- Logs ----
-
-{logChunk}
-";
-                    
-                    if (details.Errors.Count != 0)
+                    var text = $"---- Files ----\n\n{fileChunk}\n\n";
+                    if (details.Logs.Count != 0)
                     {
-                        text += @$"
----- Error Messages ----
-{string.Join("\n\n", details.Errors.Select(e => e.Message))}
-";
+                        text += $"---- Logs ----\n\n{string.Join("\n\n", details.Logs.Select(l => $"{l.Module}:\n  {l.Uri}"))}\n";
                     }
 
-                    if (details.Warnings.Count != 0)
+                    if (details.Errors != null && details.Errors.Count != 0)
                     {
-                        text += @$"
----- Warning Messages ----
-{string.Join("\n\n", details.Warnings.Select(e => e.Message))}
-";
+                        text += $"\n---- Error Messages ----\n{string.Join("\n\n", details.Errors.Select(e => e.Message))}\n";
+                    }
+
+                    if (details.Warnings != null && details.Warnings.Count != 0)
+                    {
+                        text += $"\n---- Warning Messages ----\n{string.Join("\n\n", details.Warnings.Select(e => e.Message))}\n";
                     }
 
                     await AttachResultFileToTestResultAsync(client, testRunId, testResultId, text);
                 }
                 catch (Exception ex)
                 {
-                    Log.LogWarningFromException(ex);
+                    Log.LogWarningFromException(ex, true);
                 }
             }
         }
