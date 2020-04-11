@@ -30,7 +30,17 @@ namespace Microsoft.DotNet.Helix.Sdk
                 try
                 {
                     var uploadedFiles = JsonConvert.DeserializeObject<List<UploadedFile>>(failedWorkItem.GetMetadata("UploadedFiles"));
-                    var text = string.Join(Environment.NewLine, uploadedFiles.Select(f => $"{f.Name}:{Environment.NewLine}  {f.Link}{Environment.NewLine}"));
+                    var logs = JsonConvert.DeserializeObject<List<WorkItemLog>>(failedWorkItem.GetMetadata("UploadedFiles"));
+                    var fileChunk = string.Join(Environment.NewLine, uploadedFiles.Select(f => $"{f.Name}:{Environment.NewLine}  {f.Link}{Environment.NewLine}"));
+                    var logChunk = string.Join(Environment.NewLine, logs.Select(l => $"{l.Module}:{Environment.NewLine}  {l.Uri}{Environment.NewLine}"));
+
+                    var text = @$"---- Files ----
+
+{fileChunk}
+---- Logs ----
+
+{logChunk}
+";
                     await AttachResultFileToTestResultAsync(client, testRunId, testResultId, text);
                 }
                 catch (Exception ex)

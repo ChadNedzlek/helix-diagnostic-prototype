@@ -58,6 +58,7 @@ namespace Microsoft.DotNet.Helix.Sdk
                 try
                 {
                     var files = await HelixApi.WorkItem.ListFilesAsync(wi, jobName, cancellationToken).ConfigureAwait(false);
+                    var details = await HelixApi.WorkItem.DetailsAsync(wi, jobName, cancellationToken).ConfigureAwait(false);
 
                     if (!string.IsNullOrEmpty(AccessToken))
                     {
@@ -68,6 +69,7 @@ namespace Microsoft.DotNet.Helix.Sdk
                     }
 
                     metadata["UploadedFiles"] = JsonConvert.SerializeObject(files);
+                    metadata["Logs"] = JsonConvert.SerializeObject(details.Logs);
                 }
                 catch (Exception ex)
                 {
