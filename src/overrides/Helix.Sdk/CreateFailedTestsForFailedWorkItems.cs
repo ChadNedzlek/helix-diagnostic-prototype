@@ -30,17 +30,35 @@ namespace Microsoft.DotNet.Helix.Sdk
                 try
                 {
                     var uploadedFiles = JsonConvert.DeserializeObject<List<UploadedFile>>(failedWorkItem.GetMetadata("UploadedFiles"));
-                    var logs = JsonConvert.DeserializeObject<List<WorkItemLog>>(failedWorkItem.GetMetadata("UploadedFiles"));
-                    var fileChunk = string.Join(Environment.NewLine, uploadedFiles.Select(f => $"{f.Name}:{Environment.NewLine}  {f.Link}{Environment.NewLine}"));
-                    var logChunk = string.Join(Environment.NewLine, logs.Select(l => $"{l.Module}:{Environment.NewLine}  {l.Uri}{Environment.NewLine}"));
+                    var details = JsonConvert.DeserializeObject<WorkItemDetails>(failedWorkItem.GetMetadata("UploadedFiles"));
+                    var fileChunk = string.Join("\n\n", uploadedFiles.Select(f => $"{f.Name}:\n  {f.Link}"));
+                    var logChunk = string.Join("\n\n", details.Logs.Select(l => $"{l.Module}:\n  {l.Uri}"));
 
                     var text = @$"---- Files ----
 
 {fileChunk}
+
 ---- Logs ----
 
 {logChunk}
 ";
+                    
+                    if (details.Errors.Count != 0)
+                    {
+                        text += @$"
+---- Error Messages ----
+{string.Join("\n\n", details.Errors.Select(e => e.Message))}
+";
+                    }
+
+                    if (details.Warnings.Count != 0)
+                    {
+                        text += @$"
+---- Warning Messages ----
+{string.Join("\n\n", details.Warnings.Select(e => e.Message))}
+";
+                    }
+
                     await AttachResultFileToTestResultAsync(client, testRunId, testResultId, text);
                 }
                 catch (Exception ex)
